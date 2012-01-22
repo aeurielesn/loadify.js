@@ -15,17 +15,16 @@ Loadify.prototype = {
 		/* Open in new tab/window actions */
 		if (anchor.which == 2 || anchor.metaKey || anchor.ctrlKey)
 			return true;
-		
 		var
 		href = evt.target.href,
 		container = $(anchor).attr('data-loadify-target');
 
 		window.history.pushState({ "container": container }, "", href);
-        
-        loadify.loadHandler({ "container": container }, href);
-        
-        return false;
-    },
+
+		loadify.loadHandler({ "container": container }, href);
+
+		return false;
+	},
 	popStateHandler: function(evt) {
 		evt.state && loadify.loadHandler(evt.state, location.pathname);
 	},
@@ -38,5 +37,5 @@ Loadify.prototype = {
 	}
 };
 $(function() {
-    window.loadify = new Loadify;
+	window.loadify = new Loadify;
 });
