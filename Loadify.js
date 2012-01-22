@@ -13,7 +13,7 @@ var Loadify = function() {
 Loadify.prototype = {
 	clickHandler: function(evt, anchor) {
 		/* Open in new tab/window actions */
-		if (anchor.which == 2 || anchor.metaKey || anchor.ctrlKey)
+		if (evt.which == 2 || evt.metaKey || evt.ctrlKey)
 			return true;
 		var
 		href = evt.target.href,
