@@ -3,7 +3,6 @@ var Loadify = function() {
 	if(window.history && window.history.pushState && window.history.replaceState) {
 		window.history.replaceState({ "url" : location.pathname }, "", location.pathname);
 		$("a[data-loadify-target]").live('click', function(evt) {
-			console.log("An anchor was linked.");
 			return loadify.clickHandler(evt, this);
 		});
 		$(window).bind('popstate', function(evt) {
