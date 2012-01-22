@@ -8,7 +8,7 @@ var Loadify = function() {
 		$(window).bind('popstate', function(evt) {
 			loadify.popStateHandler(evt.originalEvent);
 		});
-	};
+	}
 };
 Loadify.prototype = {
 	clickHandler: function(evt, anchor) {
@@ -26,7 +26,9 @@ Loadify.prototype = {
 		return false;
 	},
 	popStateHandler: function(evt) {
-		evt.state && loadify.loadHandler(evt.state, location.pathname);
+		if(evt.state) {
+			loadify.loadHandler(evt.state, location.pathname);
+		}
 	},
 	loadHandler: function(state, href) {
 		if(state.url) {
@@ -37,5 +39,5 @@ Loadify.prototype = {
 	}
 };
 $(function() {
-	window.loadify = new Loadify;
+	window.loadify = new Loadify();
 });
